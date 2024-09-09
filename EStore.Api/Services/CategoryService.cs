@@ -23,14 +23,14 @@ namespace EStore.Api.Services
             this._categoryRepository = categoryRepository;
         }
 
-        public async Task<CategoryViewModel> GetCategoryAsync(int categoryId)
+        public async Task<CategoryOutputModel> GetCategoryAsync(int categoryId)
         {
             var category = await _categoryRepository.GetCategoryAsync(categoryId);
 
             if (!IsThereThisCategory(category))
                 throw new CategoryNotFoundException(categoryId);
 
-            return new CategoryViewModel
+            return new CategoryOutputModel
             {
                 CategoryId = category.CategoryId,
                 Name = category.Name,
@@ -52,7 +52,7 @@ namespace EStore.Api.Services
             await _categoryRepository.SaveChangesAsync();
         }
 
-        public async Task<CategoryViewModel> AddCategoryAsync(CategoryInputModel model)
+        public async Task<CategoryOutputModel> AddCategoryAsync(CategoryInputModel model)
         {
             
             var category = new Category()
@@ -65,7 +65,7 @@ namespace EStore.Api.Services
          
             var addedCategory = _categoryRepository.AddCategoryAsync(category).Result;
             await _categoryRepository.SaveChangesAsync();
-            return new CategoryViewModel
+            return new CategoryOutputModel
             {
                 CategoryId = addedCategory.CategoryId,
                 Name = addedCategory.Name,
@@ -74,7 +74,7 @@ namespace EStore.Api.Services
 
         }
 
-        public async Task<CategoryViewModel> UpdateCategoryAsync(int categoryId, CategoryInputModel model)
+        public async Task<CategoryOutputModel> UpdateCategoryAsync(int categoryId, CategoryInputModel model)
         {
             var categoryOld = await _categoryRepository.GetCategoryAsync(categoryId);
             
@@ -94,7 +94,7 @@ namespace EStore.Api.Services
             _categoryRepository.UpdateCategory(category);
             await _categoryRepository.SaveChangesAsync();
 
-            return new CategoryViewModel
+            return new CategoryOutputModel
             {
                 CategoryId = category.CategoryId,                
                 Name = category.Name,
@@ -102,10 +102,10 @@ namespace EStore.Api.Services
             };
         }
 
-        public async Task<IEnumerable<CategoryViewModel>> GetAllCategoriesAsync()
+        public async Task<IEnumerable<CategoryOutputModel>> GetAllCategoriesAsync()
         {
             var categories = await _categoryRepository.GetAllCategoriesAsync();
-            return categories.Select(c => new CategoryViewModel
+            return categories.Select(c => new CategoryOutputModel
             {
                 CategoryId = c.CategoryId,
                 Name = c.Name,
@@ -113,13 +113,13 @@ namespace EStore.Api.Services
             });
         }
 
-        public async Task<IEnumerable<SubCategoryViewModel>> GetAllSubCategoriesAsync(string categoryName)
+        public async Task<IEnumerable<SubCategoryOuputModel>> GetAllSubCategoriesAsync(string categoryName)
         {
             if (!await IsThereThisCategoryAsync(categoryName))
                 throw new CategoryNotFoundException(categoryName);
            
             var subCategories = await _categoryRepository.GetAllSubCategoriesAsync(categoryName);
-            return subCategories.Select(s => new SubCategoryViewModel
+            return subCategories.Select(s => new SubCategoryOuputModel
             {
                 SubCategoryId = s.SubCategoryId,
                 Name = s.Name,
@@ -127,7 +127,7 @@ namespace EStore.Api.Services
             });
         }
 
-        public async Task<SubCategoryViewModel> GetSubCategoryAsync(string categoryName, int subCategoryId)
+        public async Task<SubCategoryOuputModel> GetSubCategoryAsync(string categoryName, int subCategoryId)
         {
             if (!await IsThereThisCategoryAsync(categoryName))
                 throw new CategoryNotFoundException(categoryName);
@@ -137,7 +137,7 @@ namespace EStore.Api.Services
             if (!IsThereThisSubCategory(subCategory))
                 throw new SubCategoryNotFoundException(categoryName,subCategoryId);
 
-            return new SubCategoryViewModel
+            return new SubCategoryOuputModel
             {
                 SubCategoryId = subCategory.SubCategoryId,
                 Name = subCategory.Name,
@@ -145,7 +145,7 @@ namespace EStore.Api.Services
             };
         }
 
-        public async Task<SubCategoryViewModel> AddSubCategoryAsync(string categoryName, CategoryInputModel model)
+        public async Task<SubCategoryOuputModel> AddSubCategoryAsync(string categoryName, CategoryInputModel model)
         {
             if (!await IsThereThisCategoryAsync(categoryName))
                 throw new CategoryNotFoundException(categoryName);
@@ -161,7 +161,7 @@ namespace EStore.Api.Services
             var addedSubCategory = await _categoryRepository.AddSubCategoryAsync(categoryName,subCategory);
             await _categoryRepository.SaveChangesAsync();
 
-            return new SubCategoryViewModel
+            return new SubCategoryOuputModel
             {
                 SubCategoryId = addedSubCategory.SubCategoryId,
                 Name = addedSubCategory.Name,
@@ -169,7 +169,7 @@ namespace EStore.Api.Services
             };
         }
        
-        public async Task<SubCategoryViewModel> UpdateSubCategoryAsync(string categoryName, int subCategoryId, SubCategoryInputModel model)
+        public async Task<SubCategoryOuputModel> UpdateSubCategoryAsync(string categoryName, int subCategoryId, SubCategoryInputModel model)
         {
             var subCategoryOld = await _categoryRepository.GetSubCategoryAsync(categoryName,subCategoryId);
 
@@ -193,7 +193,7 @@ namespace EStore.Api.Services
             _categoryRepository.UpdateSubCategory(subCategory);
             await _categoryRepository.SaveChangesAsync();
 
-            return new SubCategoryViewModel
+            return new SubCategoryOuputModel
             {
                 SubCategoryId = subCategory.SubCategoryId,
                 Name = subCategory.Name,
@@ -203,7 +203,7 @@ namespace EStore.Api.Services
 
         }
 
-        public async Task<IEnumerable<ProductViewModel>> GetAllProductsAsync(string categoryName, string subCategoryName, int page, int quantity)
+        public async Task<IEnumerable<ProductOutputModel>> GetAllProductsAsync(string categoryName, string subCategoryName, int page, int quantity)
         {
 
             if (!await IsThereThisCategoryAsync(categoryName))
@@ -214,7 +214,7 @@ namespace EStore.Api.Services
 
             var products = await _categoryRepository.GetAllProductsAsync(categoryName, subCategoryName, page, quantity);
 
-            return products.Select(p => new ProductViewModel
+            return products.Select(p => new ProductOutputModel
             {
                 ProductId = p.ProductId,
                 Price = p.Price,
@@ -222,7 +222,7 @@ namespace EStore.Api.Services
             });
         }
 
-        public async Task<ProductViewModel> GetProductAsync(string categoryName, string subCategoryName, int productId)
+        public async Task<ProductOutputModel> GetProductAsync(string categoryName, string subCategoryName, int productId)
         {
             if (!await IsThereThisCategoryAsync(categoryName))
                 throw new CategoryNotFoundException(categoryName);
@@ -235,7 +235,7 @@ namespace EStore.Api.Services
             if (!IsThereThisProduct(product))
                 throw new ProductNotFoundException(categoryName,productId);
 
-            return new ProductViewModel
+            return new ProductOutputModel
             {
                 ProductId = product.ProductId,
                 Price = product.Price,
@@ -243,7 +243,7 @@ namespace EStore.Api.Services
             };
         }
 
-        public async Task<ProductViewModel> AddProductAsync(string categoryName, string subCategoryName, ProductInputModel model)
+        public async Task<ProductOutputModel> AddProductAsync(string categoryName, string subCategoryName, ProductInputModel model)
         {
             if (!await IsThereThisCategoryAsync(categoryName))
                 throw new CategoryNotFoundException(categoryName);
@@ -262,7 +262,7 @@ namespace EStore.Api.Services
 
             var addedProduct = await _categoryRepository.AddProductAsync(subCategoryName,product);
             await _categoryRepository.SaveChangesAsync();
-            return new ProductViewModel
+            return new ProductOutputModel
             {
                 ProductId = addedProduct.ProductId,
                 Price = addedProduct.Price,
@@ -271,7 +271,7 @@ namespace EStore.Api.Services
 
         }
 
-        public async Task<ProductViewModel> UpdateProductAsync(string categoryName, string subCategoryName, int productId, ProductInputModel model)
+        public async Task<ProductOutputModel> UpdateProductAsync(string categoryName, string subCategoryName, int productId, ProductInputModel model)
         {
             if (!await IsThereThisCategoryAsync(categoryName))
                 throw new CategoryNotFoundException(categoryName);
@@ -297,7 +297,7 @@ namespace EStore.Api.Services
             _categoryRepository.UpdateProduct(newProduct);
             await _categoryRepository.SaveChangesAsync();
 
-            return new ProductViewModel
+            return new ProductOutputModel
             {
                 ProductId = newProduct.ProductId,
                 Price = newProduct.Price,

@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace EStore.API.ViewModel
 {
-    public class CategoryViewModel
+    public class CategoryOutputModel
     {
         [Required]
         public int CategoryId { get; set; }

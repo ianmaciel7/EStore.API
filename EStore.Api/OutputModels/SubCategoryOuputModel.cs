@@ -1,19 +1,20 @@
-﻿using System;
+﻿using EStore.Api.ViewModel;
+using EStore.API.Data;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace EStore.Api.ViewModel
+namespace EStore.API.ViewModel
 {
-    public class ProductViewModel
+    public class SubCategoryOuputModel
     {
         [Required]
-        public int ProductId { get; set; }
+        public int SubCategoryId { get; set; }
         [Required]
         [StringLength(100)]
         public string Name { get; set; }
-        [Required]
-        public double Price { get; set; }       
+        public ICollection<Product> Products { get; set; }
     }
 }

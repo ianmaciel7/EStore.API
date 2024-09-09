@@ -87,7 +87,7 @@ namespace EStore.Api.Controllers.V1
         }
 
         [HttpPost]
-        public async Task<ActionResult<ProductViewModel>> Post(
+        public async Task<ActionResult<ProductOutputModel>> Post(
             [FromRoute] string categoryName,
             [FromRoute] string subCategoryName, 
             [FromBody] ProductInputModel model)
@@ -120,7 +120,7 @@ namespace EStore.Api.Controllers.V1
         }
 
         [HttpPut("{productId:int}")]
-        public async Task<ActionResult<ProductViewModel>> Put(
+        public async Task<ActionResult<ProductOutputModel>> Put(
             [FromRoute] string categoryName,
             [FromRoute] string subCategoryName,
             [FromRoute] int productId,
