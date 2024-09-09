@@ -1,12 +1,12 @@
 ﻿using EStore.Api.ViewModel;
-using EStore.API.Data;
+using EStore.Api.Data;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace EStore.API.ViewModel
+namespace EStore.Api.ViewModel
 {
     public class SubCategoryOuputModel
     {

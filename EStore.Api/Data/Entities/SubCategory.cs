@@ -4,7 +4,7 @@ using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace EStore.API.Data.Entities
+namespace EStore.Api.Data.Entities
 {
     public class SubCategory
     {

@@ -5,7 +5,7 @@ using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace EStore.API.InputModel
+namespace EStore.Api.InputModel
 {
     public class SubCategoryInputModel
     {

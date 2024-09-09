@@ -1,7 +1,7 @@
 ﻿using EStore.Api.InputModel;
 using EStore.Api.ViewModel;
-using EStore.API.InputModel;
-using EStore.API.ViewModel;
+using EStore.Api.InputModel;
+using EStore.Api.ViewModel;
 using System;
 using System.Collections.Generic;
 using System.Linq;

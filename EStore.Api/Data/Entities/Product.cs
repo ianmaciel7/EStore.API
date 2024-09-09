@@ -1,8 +1,8 @@
-﻿using EStore.API.Data.Entities;
+﻿using EStore.Api.Data.Entities;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 
-namespace EStore.API.Data
+namespace EStore.Api.Data
 {
     public class Product
     {

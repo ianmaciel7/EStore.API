@@ -1,8 +1,8 @@
 ﻿using EStore.Api.Exceptions;
 using EStore.Api.InputModel;
 using EStore.Api.Services;
-using EStore.API.Data.Entities;
-using EStore.API.InputModel;
+using EStore.Api.Data.Entities;
+using EStore.Api.InputModel;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Routing;

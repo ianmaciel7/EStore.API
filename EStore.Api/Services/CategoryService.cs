@@ -2,10 +2,10 @@
 using EStore.Api.InputModel;
 using EStore.Api.Repository;
 using EStore.Api.ViewModel;
-using EStore.API.Data;
-using EStore.API.Data.Entities;
-using EStore.API.InputModel;
-using EStore.API.ViewModel;
+using EStore.Api.Data;
+using EStore.Api.Data.Entities;
+using EStore.Api.InputModel;
+using EStore.Api.ViewModel;
 using System;
 using System.Collections;
 using System.Collections.Generic;

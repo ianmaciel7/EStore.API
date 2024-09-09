@@ -1,8 +1,8 @@
-﻿using EStore.API.Data.Entities;
+﻿using EStore.Api.Data.Entities;
 using Microsoft.EntityFrameworkCore;
 using System.Diagnostics.CodeAnalysis;
 
-namespace EStore.API.Data
+namespace EStore.Api.Data
 {
     public class AppDbContext : DbContext
     {

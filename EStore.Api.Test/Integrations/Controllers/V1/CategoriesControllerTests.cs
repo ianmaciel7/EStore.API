@@ -1,6 +1,6 @@
 ﻿using AutoBogus;
 using EStore.Api.Test.Configurations;
-using EStore.API.InputModel;
+using EStore.Api.InputModel;
 using Microsoft.AspNetCore.Mvc.Testing;
 using Newtonsoft.Json;
 using System;
