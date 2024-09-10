@@ -4,7 +4,7 @@ using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace EStore.Api.InputModel
+namespace EStore.Api.InputModels
 {
     public class ProductInputModel
     {
@@ -12,6 +12,6 @@ namespace EStore.Api.InputModel
         [StringLength(100)]
         public string Name { get; set; }
         [Required]
-        public double Price { get; set; }       
+        public double Price { get; set; }
     }
 }

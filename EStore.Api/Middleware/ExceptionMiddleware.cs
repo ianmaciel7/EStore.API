@@ -4,7 +4,7 @@ using System.IO;
 using System.Net;
 using System.Threading.Tasks;
 
-namespace ExemploApiCatalogoJogos.Middleware
+namespace EStore.Api.Middleware
 {
     public class ExceptionMiddleware
     {
@@ -30,7 +30,7 @@ namespace ExemploApiCatalogoJogos.Middleware
         private static async Task HandleExceptionAsync(HttpContext context)
         {
             context.Response.StatusCode = (int)HttpStatusCode.InternalServerError;
-            await context.Response.WriteAsJsonAsync(new { Message = "Ocorreu um erro durante sua solicitação, por favor, tente novamente mais tarde"});
+            await context.Response.WriteAsJsonAsync(new { Message = "Ocorreu um erro durante sua solicitação, por favor, tente novamente mais tarde" });
         }
     }
 }

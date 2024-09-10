@@ -1,7 +1,6 @@
 using EStore.Api.Repository;
 using EStore.Api.Services;
 using EStore.Api.Data;
-using ExemploApiCatalogoJogos.Middleware;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
@@ -18,6 +17,7 @@ using System.IO;
 using System.Linq;
 using System.Reflection;
 using System.Threading.Tasks;
+using EStore.Api.Middleware;
 
 namespace EStore.Api
 {

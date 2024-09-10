@@ -1,7 +1,5 @@
 ﻿using EStore.Api.Exceptions;
-using EStore.Api.InputModel;
 using EStore.Api.Services;
-using EStore.Api.InputModel;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Routing;
@@ -9,6 +7,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using EStore.Api.InputModels;
 
 namespace EStore.Api.Controllers.V1
 {

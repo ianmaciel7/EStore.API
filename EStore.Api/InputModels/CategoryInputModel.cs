@@ -5,7 +5,7 @@ using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace EStore.Api.InputModel
+namespace EStore.Api.InputModels
 {
     public class CategoryInputModel
     {

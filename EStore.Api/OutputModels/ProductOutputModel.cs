@@ -4,7 +4,7 @@ using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace EStore.Api.ViewModel
+namespace EStore.Api.OutputModels
 {
     public class ProductOutputModel
     {
@@ -14,6 +14,6 @@ namespace EStore.Api.ViewModel
         [StringLength(100)]
         public string Name { get; set; }
         [Required]
-        public double Price { get; set; }       
+        public double Price { get; set; }
     }
 }

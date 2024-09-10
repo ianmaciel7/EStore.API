@@ -1,8 +1,6 @@
-﻿using EStore.Api.InputModel;
-using EStore.Api.Data;
+﻿using EStore.Api.Data;
 using EStore.Api.Data.Entities;
 using Microsoft.EntityFrameworkCore;
-using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;

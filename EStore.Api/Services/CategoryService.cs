@@ -1,16 +1,13 @@
 ﻿using EStore.Api.Exceptions;
-using EStore.Api.InputModel;
 using EStore.Api.Repository;
-using EStore.Api.ViewModel;
-using EStore.Api.Data;
 using EStore.Api.Data.Entities;
-using EStore.Api.InputModel;
-using EStore.Api.ViewModel;
 using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using EStore.Api.OutputModels;
+using EStore.Api.InputModels;
 
 namespace EStore.Api.Services
 {

@@ -1,6 +1,5 @@
 ﻿using AutoBogus;
 using EStore.Api.Test.Configurations;
-using EStore.Api.InputModel;
 using Microsoft.AspNetCore.Mvc.Testing;
 using Newtonsoft.Json;
 using System;
@@ -11,6 +10,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Xunit;
 using Xunit.Abstractions;
+using EStore.Api.InputModels;
 
 namespace EStore.Api.Test.Integrations.Controllers.V1
 {
